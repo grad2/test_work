@@ -5,31 +5,31 @@ import 'package:untitled9/presentation/model/count.dart';
 
 class HomePageBloc {
   
-  final BehaviorSubject<Counters> countSubject;
+  final BehaviorSubject<Counters> _countersSubject;
 
-  Counters get getCount => countSubject.value;
+  Counters get getCount => _countersSubject.value;
 
-  Stream<Counters> get watchCount => countSubject.stream;
+  Stream<Counters> get watchCount => _countersSubject.stream;
 
   HomePageBloc({
     Counters? count
   }) :
-        countSubject = BehaviorSubject.seeded(count ?? const Counters(three: 0, two: 0, one: 0));
+        _countersSubject = BehaviorSubject.seeded(count ?? const Counters(three: 0, two: 0, one: 0));
 
 
   void addCount(Count count) {
     switch (count) {
       case Count.one:
-        return countSubject.add(countSubject.value.copyWith(one: countSubject.value.one + 1));
+        return _countersSubject.add(_countersSubject.value.copyWith(one: _countersSubject.value.one + 1));
       case Count.two:
-        return countSubject.add(countSubject.value.copyWith(two: countSubject.value.two + 1));
+        return _countersSubject.add(_countersSubject.value.copyWith(two: _countersSubject.value.two + 1));
       default:
-        return countSubject.add(countSubject.value.copyWith(three: countSubject.value.three + 1));
+        return _countersSubject.add(_countersSubject.value.copyWith(three: _countersSubject.value.three + 1));
     }
   }
 
   dispose() {
-    countSubject.close();
+    _countersSubject.close();
   }
 }
 

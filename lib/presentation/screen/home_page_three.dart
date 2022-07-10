@@ -40,7 +40,7 @@ class HomePageThree extends StatelessWidget {
                 backgroundColor: Colors.green,
               ),
               body: StreamBuilder<Counters>(
-                  stream: block.watchCount,
+                  stream: block.watchCounters,
                   builder: (context, snapshot) {
                     if(snapshot.data == null){
                       return const SizedBox.shrink();

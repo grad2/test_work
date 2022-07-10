@@ -27,7 +27,7 @@ class HomePageOne extends StatelessWidget {
               appBar: AppBar(
                 leading: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushReplacementNamed(HomePageTwo.routeName, arguments: CountersArguments(counters: block.getCount));
+                    Navigator.of(context).pushReplacementNamed(HomePageTwo.routeName, arguments: CountersArguments(counters: block.getCounters));
                   },
                   child: const Icon(
                     Icons.navigate_next,
@@ -38,7 +38,7 @@ class HomePageOne extends StatelessWidget {
                 backgroundColor: Colors.blue,
               ),
               body: StreamBuilder<Counters>(
-                stream: block.watchCount,
+                stream: block.watchCounters,
                 builder: (context, snapshot) {
                   if(snapshot.data == null){
                     return const SizedBox.shrink();

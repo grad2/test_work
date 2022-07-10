@@ -29,7 +29,7 @@ class HomePageTwo extends StatelessWidget {
               appBar: AppBar(
                 leading: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushReplacementNamed(HomePageThree.routeName, arguments: CountersArguments(counters: block.getCount));
+                    Navigator.of(context).pushReplacementNamed(HomePageThree.routeName, arguments: CountersArguments(counters: block.getCounters));
                   },
                   child: const Icon(
                     Icons.navigate_next,
@@ -40,7 +40,7 @@ class HomePageTwo extends StatelessWidget {
                 backgroundColor: Colors.redAccent,
               ),
               body: StreamBuilder<Counters>(
-                  stream: block.watchCount,
+                  stream: block.watchCounters,
                   builder: (context, snapshot) {
                     if(snapshot.data == null){
                       return const SizedBox.shrink();

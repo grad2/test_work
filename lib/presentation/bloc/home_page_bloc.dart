@@ -7,9 +7,9 @@ class HomePageBloc {
   
   final BehaviorSubject<Counters> _countersSubject;
 
-  Counters get getCount => _countersSubject.value;
+  Counters get getCounters => _countersSubject.value;
 
-  Stream<Counters> get watchCount => _countersSubject.stream;
+  Stream<Counters> get watchCounters => _countersSubject.stream;
 
   HomePageBloc({
     Counters? count
